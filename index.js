@@ -53,10 +53,10 @@ const mergeSort = (array) => {
     }
 
     const half = Math.ceil(array.length / 2);
-    const firstHalf = array.slice(0, half);
-    const secondHalf = array.slice(half);
+    const firstHalf = mergeSort(array.slice(0, half));
+    const secondHalf = mergeSort(array.slice(half));
 
-    return merge(mergeSort(firstHalf), mergeSort(secondHalf));
+    return merge(firstHalf, secondHalf);
 }
 
 
